@@ -1,0 +1,19 @@
+﻿<link rel="stylesheet" href="~/css/editdetail.css" />
+
+<div class="mains_page col-12">
+    <div class="content_page col-10">
+        <h1 class="why col-12">Edit Item</h1>
+        <form action="/Detail/Edit" class="form_details col-12" method="post">
+            <input type="hidden" value="@Model.Id" name="Id" />
+            <label for="title" class="label_name col-12">Title</label>
+            <input type="text" id="title" class="input_details col-12" name="Title" value="@Model.Title" required />
+            <label for="description" class="label_name col-12">Description</label>
+            <input type="text" id="description" class="input_details col-12" name="Description" value="@Model.Description" required />
+            <label for="dates" class="label_name col-12">DeadLine</label>
+            <input type="datetime-local" id="dates" class="input_details col-12" name="DeadLine" value="@Model.DeadLine.ToString("yyyy-MM-ddTHH:mm")" required />
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn_create">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>

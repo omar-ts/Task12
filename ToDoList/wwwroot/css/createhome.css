@@ -1,0 +1,40 @@
+﻿.main_page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.detail_page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.form_name {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.input_name {
+    border: solid 1px #8f8f8fb0;
+    border-radius: 3px;
+    outline: 0;
+}
+
+    .input_name:focus {
+        box-shadow: 0px 0px 2px blue;
+    }
+
+.btn_form {
+    margin-top: 1rem;
+}

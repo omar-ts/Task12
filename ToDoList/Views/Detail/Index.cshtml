@@ -1,0 +1,115 @@
+﻿<link rel="stylesheet" href="~/css/book.css" />
+
+<div class="main_page col-12">
+    <div class="details_page col-10">
+        <h1 class="h1_details col-12">Welcome @TempData["username"]</h1>
+        <div class="succ_box succ_box_dis col-12">
+            <p class="succ_msg">Created @TempData["Success"] Successfully</p>
+        </div>
+        <p class="p_details col-12">Here is your to-do list:</p>
+        <div class="btn_area col-12">
+            <a href="/Detail/Create" type="button" class="btn btn-success"><i class="bi bi-plus-circle"></i> Create New</a>
+        </div>
+        <table class="table col-12" style="margin-top:1rem;">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">DeadLine</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.DeadLine</td>
+                        <td>
+                            <a href="/Detail/Edit/@item.Id" type="button" class="btn btn-primary btn_edit">Edit</a>
+                            <button type="button" class="btn btn-danger btn_delete" data-id="@item.Id">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="del_page del_page_not col-12">
+    <div class="del_box">
+        <div class="top_msg col-12">
+            <p class="p_top">Confirm Delete</p>
+            <i class="bi bi-x-square i_top"></i>
+        </div>
+        <div class="line_top col-12"></div>
+        <div class="middle_msg col-12">
+            <p class="p_middle">Are you sure you to delete this item ?</p>
+        </div>
+        <div class="line_down col-12"></div>
+        <div class="low_msg col-12">
+            <button type="button" class="btn btn-secondary btn_low">Cancel</button>
+            <a href="" type="button" class="btn btn-primary btn_low_del">Delete</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const btn_delete = document.querySelectorAll(".btn_delete");
+        const btn_low_del = document.querySelector(".btn_low_del");
+        const del_page = document.querySelector(".del_page");
+        const del_page_not = document.querySelector(".del_page_not");
+        const del_page_app = document.querySelector(".del_page_app");
+        const del_box = document.querySelector(".del_box");
+        const btn_low = document.querySelector(".btn_low");
+        const i_top = document.querySelector(".i_top");
+        const succ_box = document.querySelector(".succ_box");
+        const succ_box_dis = document.querySelector(".succ_box_dis");
+        const succ_box_app = document.querySelector(".succ_box_app");
+
+        function appear() {
+            del_page.classList.remove("del_page_not");
+            del_page.classList.add("del_page_app");
+            del_box.classList.add('animate__animated', 'animate__faster', 'animate__fadeInDownBig');
+        };
+        function hide() {
+            del_page.classList.remove("del_page_app");
+            del_page.classList.add("del_page_not");
+        };
+
+        btn_delete.forEach(button => {
+            button.onclick = function () {
+                const personId = this.getAttribute("data-id");
+                appear();
+                btn_low_del.setAttribute("href", `/Detail/Delete/${personId}`);
+            };
+        });
+
+        del_box.onclick = function (e) {
+            e.stopPropagation();
+        };
+        btn_low.onclick = function () {
+            hide();
+        };
+        i_top.onclick = function () {
+            hide();
+        };
+        del_page.onclick = function () {
+            hide();
+        };
+        var successMessage = '@TempData["Success"]';
+        if (successMessage !== '') {
+            succ_box.classList.remove("succ_box_dis");
+            succ_box.classList.add("succ_box_app", "animate__animated", "animate__fadeIn", "animate__fast");
+            setTimeout(function () {
+                succ_box.classList.add("animate__animated", "animate__fadeOut", "animate__fast");
+            }, 800);
+            setTimeout(function () {
+                succ_box.classList.remove("succ_box_app");
+                succ_box.classList.add("succ_box_dis");
+            }, 1600);
+        };
+    </script>
+}

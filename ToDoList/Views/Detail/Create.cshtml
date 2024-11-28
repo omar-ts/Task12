@@ -1,0 +1,20 @@
+﻿<link rel="stylesheet" href="~/css/createdetail.css" />
+
+<div class="mains_page col-12">
+    <div class="content_page col-10">
+        <h1 class="col-12">CreateNew</h1>
+        <h4 class="col-12">ListItem</h4>
+        <div class="line_content col-12"></div>
+        <form action="/Detail/Create" class="form_details col-12" method="post">
+            <label for="title" class="label_name col-12">Title</label>
+            <input type="text" id="title" class="input_details" name="Title" required />
+            <label for="description" class="label_name col-12">Description</label>
+            <input type="text" id="description" class="input_details" name="Description" required />
+            <label for="dates" class="label_name col-12">DeadLine</label>
+            <input type="datetime-local" id="dates" class="input_details" name="DeadLine" required />
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn_create">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

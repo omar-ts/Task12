@@ -1,0 +1,56 @@
+﻿.mains_page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content_page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.line_content {
+    background-color: #32323229;
+    height: 1px;
+    border-radius: 3px;
+    margin-top: 0.2rem;
+}
+
+.form_details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 1rem;
+}
+
+.label_name {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.input_details {
+    width: 21%;
+    border-radius: 3px;
+    border: solid 1px #4d4d4d80;
+    padding: 0.1rem 0.4rem;
+}
+
+    .input_details:focus {
+        box-shadow: 0px 0px 1px 2px #2257ce;
+        outline-style: auto;
+        outline-color: #ddddff;
+    }
+
+.btn_create {
+    margin-top: 1rem;
+}
